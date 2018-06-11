@@ -1,3 +1,6 @@
+[submodule "refs/nvm"]
+	path = refs/nvm
+	url = git@github.com:creationix/nvm.git
 [submodule "refs/oh-my-zsh"]
 	path = refs/oh-my-zsh
 	url = git@github.com/robbyrussell/oh-my-zsh.git

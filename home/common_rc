@@ -87,7 +87,14 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# https://stackoverflow.com/questions/9910966/how-to-tell-if-its-using-zsh-or-bash
+if [ -n "$ZSH_VERSION" ]; then
+#  echo "zsh_completion for NVM doesn't exist"
+elif [ -n "$BASH_VERSION" ]; then
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+else
+  echo "shell completition for your shell $SHELL can't be loaded"
+fi
 
 # SDK MAN
 #export SDKMAN_DIR="${HOME}/.sdkman"
