@@ -1,0 +1,17 @@
+# load aliases
+[ -f ~/.aliases ] && source ~/.aliases
+
+# load platform specific setup
+[ -f ~/.platformrc ] && source ~/.platformrc
+
+# Enable fzf
+if [ -n "$ZSH_VERSION" ]; then
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+elif [ -n "$BASH_VERSION" ]; then
+  [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+else
+  echo "fzf integration for $SHELL can't be loaded"
+fi
+
+# Enable nvm
+[ -f ~/.nvmrc ] && source ~/.nvmrc
